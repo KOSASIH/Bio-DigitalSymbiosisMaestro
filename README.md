@@ -245,3 +245,50 @@ This code snippet defines a function `sentiment_analysis` that performs sentimen
 To use this function, you will need to install the `transformers` library and have a pre-trained BERT model available. The function utilizes the Hugging Face `transformers` library, which provides easy access to pre-trained models and tokenizers.
 
 Note that this code assumes you already have a pre-trained BERT model available. If not, you can download one from the Hugging Face model hub or train your own model using a suitable dataset.
+
+```python
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.tag import pos_tag
+from nltk.chunk import ne_chunk
+
+def extract_keywords(text):
+    # Tokenize the text into sentences
+    sentences = sent_tokenize(text)
+    
+    # Initialize an empty list to store the keywords
+    keywords = []
+    
+    for sentence in sentences:
+        # Tokenize the sentence into words
+        words = word_tokenize(sentence)
+        
+        # Remove stopwords and punctuation
+        words = [word.lower() for word in words if word.isalpha() and word.lower() not in stopwords.words('english')]
+        
+        # Perform part-of-speech tagging
+        pos_tags = pos_tag(words)
+        
+        # Extract named entities
+        named_entities = ne_chunk(pos_tags)
+        
+        # Iterate over the named entities and add them to the keywords list
+        for entity in named_entities:
+            if hasattr(entity, 'label') and entity.label() == 'NE':
+                keywords.append(' '.join(c[0] for c in entity))
+    
+    return keywords
+```
+
+This function takes a text as input and extracts the keywords using natural language processing techniques such as part-of-speech tagging and named entity recognition. It uses the NLTK library for tokenization, stopword removal, part-of-speech tagging, and named entity recognition.
+
+The function first tokenizes the input text into sentences using the `sent_tokenize` function. Then, it iterates over each sentence and tokenizes it into words using the `word_tokenize` function. It removes stopwords and punctuation from the words list.
+
+Next, it performs part-of-speech tagging on the words using the `pos_tag` function. This assigns a part-of-speech tag to each word, such as noun, verb, adjective, etc.
+
+Then, it applies named entity recognition using the `ne_chunk` function. This identifies named entities in the text, such as person names, organization names, etc. It iterates over the named entities and adds them to the keywords list.
+
+Finally, it returns the list of extracted keywords.
+
+You can use this function to extract keywords from a given text for tasks such as text summarization or topic extraction.
