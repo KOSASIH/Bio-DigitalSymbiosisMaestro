@@ -207,3 +207,41 @@ print(f"The similarity between the two documents is: {similarity}")
 This code snippet defines a function `calculate_similarity` that takes two text documents as input and calculates their similarity using the TF-IDF technique. It uses the NLTK library to tokenize the documents into words and then combines them into sentences. The function then creates a TF-IDF vectorizer and fits and transforms the documents into TF-IDF vectors. Finally, it calculates the cosine similarity between the vectors and returns the similarity score.
 
 To use this function, you can pass in two text documents and it will return a similarity score between 0 and 1, where 1 indicates the documents are identical and 0 indicates no similarity. In the example usage provided, the similarity between the two documents is printed.
+
+```python
+import torch
+from transformers import BertTokenizer, BertForSequenceClassification
+
+def sentiment_analysis(text):
+    # Load pre-trained model and tokenizer
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
+
+    # Tokenize and encode the input text
+    input_ids = tokenizer.encode(text, add_special_tokens=True)
+    attention_mask = [1] * len(input_ids)
+
+    # Convert the inputs to PyTorch tensors
+    input_ids = torch.tensor([input_ids])
+    attention_mask = torch.tensor([attention_mask])
+
+    # Perform inference
+    with torch.no_grad():
+        outputs = model(input_ids, attention_mask=attention_mask)
+
+    # Get the predicted sentiment label
+    logits = outputs[0]
+    predicted_label = torch.argmax(logits).item()
+
+    # Map the predicted label to sentiment class
+    sentiment_classes = {0: "Negative", 1: "Neutral", 2: "Positive"}
+    sentiment = sentiment_classes[predicted_label]
+
+    return sentiment
+```
+
+This code snippet defines a function `sentiment_analysis` that performs sentiment analysis on a given text using a pre-trained BERT model. The function takes a text input and returns the sentiment label as either "Positive", "Negative", or "Neutral".
+
+To use this function, you will need to install the `transformers` library and have a pre-trained BERT model available. The function utilizes the Hugging Face `transformers` library, which provides easy access to pre-trained models and tokenizers.
+
+Note that this code assumes you already have a pre-trained BERT model available. If not, you can download one from the Hugging Face model hub or train your own model using a suitable dataset.
