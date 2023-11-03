@@ -87,3 +87,65 @@ Based on the analysis, the AI agent has performed well and has met the objective
 4. Incorporate user feedback to further enhance the user experience.
 
 Overall, the AI agent has demonstrated its effectiveness in assisting with code generation tasks and has the potential to further improve its performance.
+
+# Task Scheduler Algorithm
+
+The task scheduler algorithm aims to optimize the allocation of tasks between humans and AI based on various factors such as task complexity, AI capabilities, human expertise, and workload distribution. The algorithm follows a set of steps to determine the most suitable assignment for each task.
+
+## Inputs
+- List of tasks: Each task contains information such as task ID, task complexity, and required expertise.
+- List of available AI agents: Each AI agent has information about its capabilities and workload.
+- List of available human agents: Each human agent has information about their expertise and workload.
+
+## Outputs
+- Assignment of tasks to either AI agents or human agents.
+
+## Algorithm Steps
+1. Initialize an empty assignment list to store the task assignments.
+2. Sort the list of tasks based on their complexity in ascending order.
+3. For each task in the sorted list:
+   - Check the workload of available AI agents and human agents.
+   - Calculate a suitability score for each available agent based on their expertise and workload.
+   - Assign the task to the agent with the highest suitability score.
+   - Update the workload of the assigned agent.
+   - Add the task assignment to the assignment list.
+4. Return the assignment list.
+
+## Pseudocode
+
+```python
+function schedule_tasks(tasks, ai_agents, human_agents):
+    assignment_list = []
+
+    # Sort tasks based on complexity
+    sorted_tasks = sort_tasks_by_complexity(tasks)
+
+    for task in sorted_tasks:
+        best_agent = None
+        best_score = -1
+
+        for agent in ai_agents + human_agents:
+            if agent.workload < agent.max_workload:
+                score = calculate_suitability_score(agent, task)
+                if score > best_score:
+                    best_score = score
+                    best_agent = agent
+
+        if best_agent is not None:
+            best_agent.workload += 1
+            assignment_list.append((task, best_agent))
+
+    return assignment_list
+
+def calculate_suitability_score(agent, task):
+    # Calculate suitability score based on expertise, workload, and other factors
+    score = agent.expertise * (1 - agent.workload_factor) + task.complexity * task.priority_factor
+    return score
+
+def sort_tasks_by_complexity(tasks):
+    # Sort tasks based on complexity in ascending order
+    sorted_tasks = sorted(tasks, key=lambda x: x.complexity)
+    return sorted_tasks
+```
+
+Please note that this is a high-level representation of the algorithm's logic and pseudocode. You may need to adapt and modify it according to your specific requirements and programming language.
