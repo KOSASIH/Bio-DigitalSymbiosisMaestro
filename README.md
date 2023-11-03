@@ -53,7 +53,7 @@ def generate_markdown_code(task_details):
     return markdown_code
 ```
 ```
-
+```
 ## Analysis Report
 
 ### Performance Metrics
