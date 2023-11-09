@@ -9,7 +9,8 @@ Mastering the symbiotic relationship between humans and AI in the bio-digital er
 - [Problems To Solve](#problems-to-solve)
 - [Contributor Guide](#contributor-guide)
 - [Guide](#guide)
-- [Roadmap](#roadmap) 
+- [Roadmap](#roadmap)
+- [Aknowledgement](aknowledgement.md) 
 
 # Description 
 
