@@ -7,7 +7,10 @@ Mastering the symbiotic relationship between humans and AI in the bio-digital er
 - [Vision And Mission](#vision-and-mission)
 - [Technologies](#technologies)
 - [Problems To Solve](#problems-to-solve)
-- 
+- [Contributor Guide](#contributor-guide)
+- [Guide](#guide)
+- [Roadmap](#roadmap) 
+
 # Description 
 
 **BioDigitalSymbiosisMaestro: Mastering the Symbiotic Relationship Between Humans and AI in the Bio-Digital Era**
@@ -57,6 +60,83 @@ The BioDigitalSymbiosisMaestro aims to address several critical challenges inher
 6. **Regulatory Frameworks:** Assisting in the development and understanding of regulatory frameworks that guide the responsible use of AI within biological systems, ensuring compliance and safety.
 
 By addressing these challenges, BioDigitalSymbiosisMaestro endeavors to empower individuals and organizations, guiding them to harness the symbiotic potential between humans and AI in the bio-digital era while mitigating associated risks and fostering responsible innovation.
+
+# Contributor Guide 
+
+## BioDigitalSymbiosisMaestro Repository Contributor Guide
+
+### Welcome to the BioDigitalSymbiosisMaestro Project!
+
+Thank you for your interest in contributing to our project. Your collaboration helps us achieve our mission of mastering the symbiotic relationship between humans and AI in the bio-digital era.
+
+### How to Contribute
+
+#### 1. Fork the Repository
+
+Fork the repository to your GitHub account.
+
+#### 2. Clone the Repository
+
+Clone the forked repository to your local machine:
+
+```bash
+git clone https://github.com/KOSASIH/BioDigitalSymbiosisMaestro.git
+```
+
+#### 3. Create a Branch
+
+Create a new branch to work on your contribution:
+
+```bash
+git checkout -b feature/your-feature
+```
+
+#### 4. Work on Your Contribution
+
+Make your changes or additions within your branch. Ensure your code follows our [**contribution guidelines**](CONTRIBUTING.md) and coding standards.
+
+#### 5. Commit Your Changes
+
+Once you've made your changes, commit them with a descriptive commit message:
+
+```bash
+git commit -m "Brief description of your changes"
+```
+
+#### 6. Push Your Changes
+
+Push your changes to your forked repository:
+
+```bash
+git push origin feature/your-feature
+```
+
+#### 7. Create a Pull Request
+
+Go to the original repository and submit a pull request:
+
+- Provide a detailed explanation of your changes.
+- Ensure your pull request adheres to our guidelines.
+
+#### 8. Review and Collaborate
+
+Our team will review your pull request. Expect feedback or requests for additional changes. Collaboration is key!
+
+### Contribution Guidelines
+
+Please refer to our [**Contribution Guidelines**](CONTRIBUTING.md) for detailed information on contributing, code standards, issue tracking, and more.
+
+### Code of Conduct
+
+We expect all contributors to adhere to our [**Code of Conduct**](CODE_OF_CONDUCT.md). Please be respectful and considerate when interacting with others.
+
+### Feedback and Support
+
+For questions, feedback, or assistance, feel free to reach out to our team or open an issue in our repository.
+
+We appreciate your dedication and look forward to your contributions!
+
+Thank you for being part of the BioDigitalSymbiosisMaestro project!
 
 # Guide 
 
